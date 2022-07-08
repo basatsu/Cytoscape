@@ -1,27 +1,5 @@
 var cy = cytoscape({
     container: document.getElementById('cy'),
-    // elements: [
-    //     {
-    //         data: {
-    //             id: '送信',
-    //             name: 'A'
-    //         }
-    //     },
-    //     {
-    //         data: {
-    //             id: '受信',
-    //             name: 'B'
-    //         }
-    //     },
-    //     {
-    //         data: {
-    //             id: '送受信関',
-    //             name: 'AB',
-    //             source: '送信',
-    //             target: '受信'
-    //         }
-    //     }
-    // ],
     style: [
         {
             selector: 'send',
@@ -105,7 +83,7 @@ let connect = [
 ]
 
 
-//node作成
+//node create1
 items.forEach(function (item, index) {
 
     cy.add({
@@ -119,7 +97,7 @@ items.forEach(function (item, index) {
     });
 })
 
-//node作成
+//node create2
 items2.forEach(function (item, index) {
 
     cy.add({
@@ -133,7 +111,7 @@ items2.forEach(function (item, index) {
     });
 })
 
-//edge作成
+//edge create
 connect.forEach(function (value, index) {
     cy.add({
         data: {
@@ -147,9 +125,7 @@ connect.forEach(function (value, index) {
 
 var layout = cy.elements().layout({
     //name: 'random',
-    //レイアウトに合わせて、画像の視界を調整する
     //fit: true,
-    //レイアウト変換中アニメション効果を有効化
     //animate: false,
 
     name: 'breadthfirst',
@@ -160,40 +136,12 @@ var layout = cy.elements().layout({
     grid: false, // whether to create an even grid into which the DAG is placed (circle:false only)
     spacingFactor: 1.75, // positive spacing factor, larger => more space between nodes (N.B. n/a if causes overlap)
     avoidOverlap: true, // prevents node overlap, may overflow boundingBox if not enough space
-    //animate: true,
-    //animationDuration: 1000, // duration of animation in ms if enabled
+  
 
 });
 
 layout.run();
 
-//idが「j」の要素にアニメションを設定
-//var j = cy.$('#BBB02');
-//var xp = cy.$('#j').position('x');
-//var yp = cy.$('#j').position('y');
-//10秒内で、画像視界を指定要素まで調整（ZoomIn/Out）する、ペーディングが20px
-// cy.animate({
-//     fit: {
-//         eles: j,
-//         padding: 50
-//     },
-//     // pan: {
-//     //     x: xp,
-//     //     y: yp
-//     // },
-//     zoom: 2.0
-// }, {
-//     duration: 2000,
-//     complete: function () {
-//         cy.$('#BBB02').select().css('background-color', 'red');
-
-//     }
-// });
-
-// cy.zoom({
-//     level: 2.0, // the zoom level
-//     position: cy.getElementById(j).position()
-// });
 $("#IdBtnRead").click(function () {
     var textbox = document.getElementById("input-message");
     var inputValue = textbox.value;
@@ -209,10 +157,5 @@ $("#IdBtnRead").click(function () {
         zoom: 1.2
     }, {
         duration: 2000,
-        //complete: function () {
-        //  cy.$(cyid).select().css('background-color', 'red');
-        //}
     });
-
-
 });
