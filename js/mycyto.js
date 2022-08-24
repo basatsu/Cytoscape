@@ -287,8 +287,8 @@ $("#IdBtnRead").click(function () {
 
 
 var options = {
-    //name: 'breadthfirst',
-    name: 'dagre',
+    name: 'breadthfirst',
+    //name: 'dagre',
     fit: true, // whether to fit the viewport to the graph
     directed: true, // whether the tree is directed downwards (or edges can point in any direction if false)
     padding: 30, // padding on fit
